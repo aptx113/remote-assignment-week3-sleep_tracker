@@ -1,0 +1,41 @@
+1. What is Encapsulation? Try to list out the benefits of Encapsulation.
+ans: 
+   (1). 封裝是物件導向程式設計的重要概念，意思是限制類別的member存取權，讓外部只能讀取而不能寫入
+
+   (2). 封裝的好處是讓程式碼容易維護且不容易有bug，因為外部不能寫入，所以要調整程式碼只要回到宣告的地方即可。而當封裝的member有更新時，外部的使用者也能接收到更新，不需要在兩個地方修改更新內容。
+
+
+2. Try to explain what is enum and why we use them. 
+ans:
+    (1).  有些類別，其物件只有固定幾種，例如會員等級，或是項目的顏色，此時可以在宣告類別時就直接定義好各個物件，以便直接使用，稱為列舉。
+    (2).  使用列舉可以避免傳遞無效的值，且能限制方法中輸入的參數。
+
+
+3. How to use enum in Kotlin? Attach a sample code that use enum in Kotlin.
+ans:
+    (1)
+
+enum class Priority(val value: Int){
+    MINOR(-1),
+    NORMAL(0),
+    MAJAOR(1),
+    CRITICAL(10)
+}
+
+fun main() {
+    val priority = Priority.NORMAL
+    println(priority.value)
+
+
+4. What are the differences between LinearLayout and RelativeLayout? Try to explain in
+details.
+
+ans:
+(1).LinearLayout: 採用水平或垂直的方式排列當中的元素，一個接著一個的排，且一行/列只能有一個元素。
+
+(2) RelativeLayout: 其元素的排序是根據與parent和其他元素的關係來排序，可以透過id指定某個元素要在另個元素的左右或是上下。 所以兩者的差異在於，LinearLayout的元素只能上下或左右依序排列，但RelativeLayou的元素可以是左右對齊、上下對齊或置於中央的形式來排列兩個元素。
+
+
+5. Try to explain the benefits of ConstraintLayout. Why you should use it?
+ans:
+其好處是可以較彈性的去安排各個元素的位置，同時可以因應螢幕的大小和方向來調整元素的呈現方式。此外，ConstraintLayout可以讓view hierarchy扁平化，讓Android的系統在計算版面配置時不會耗費太多的資源。
