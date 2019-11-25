@@ -66,9 +66,7 @@ class SleepQualityFragment : Fragment() {
         // give the binding object a reference to it.
         binding.sleepQualityViewModel = sleepQualityViewModel
 
-        sleepQualityViewModel.sleepInformation.observe(this, Observer {
-            sleepQualityViewModel.setSleepInformation(it)
-        })
+        
         // Add an Observer to the state variable for Navigating when a Quality icon is tapped.
         sleepQualityViewModel.navigateToSleepTracker.observe(this, Observer {
             if (it == true) { // Observed state is true.
