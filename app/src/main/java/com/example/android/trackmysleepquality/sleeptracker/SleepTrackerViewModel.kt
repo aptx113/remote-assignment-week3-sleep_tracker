@@ -39,14 +39,25 @@ class SleepTrackerViewModel(
     private var viewModelJob = Job()
 
     /**
-     * A [CoroutineScope] keeps track of all coroutines started by this ViewModel.
+<<<<<<< Updated upstrea
+     * A [CoroutineScope]keeps track of all coroutines started by this ViewModel.
      *
-     * Because we pass it [viewModelJob], any coroutine started in this uiScope can be cancelled
+     * Because we pass it [viewModelJob, any coroutine started in this uiScope can be cancelled
      * by calling `viewModelJob.cancel()`
      *
-     * By default, all coroutines started in uiScope will launch in [Dispatchers.Main] which is
+     * By default, all coroutines started in uiScope will launch in [Dispatchers.Mainwhich is
      * the main thread on Android. This is a sensible default because most coroutines started by
-     * a [ViewModel] update the UI after performing some processing.
+     * a [ViewModel update the UI after performing some processing.
+=======
+     * A CoroutineScope] keeps track of all coroutines started by this ViewModel.
+     *
+     * Because we pass it [viewModelJob, any coroutine started in this uiScope can be cancelled
+     * by calling `viewModelJob.cancel()`
+     *
+     * By default, all coroutines started in uiScope will launch in Dispatchers.Main] which is
+     * the main thread on Android. This is a sensible default because most coroutines started by
+     * a ViewModel update the UI after performing some processing.
+>>>>>>> Stashed changes
      */
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
@@ -96,7 +107,11 @@ class SleepTrackerViewModel(
         get() = _showSnackbarEvent
 
     /**
-     * Variable that tells the Fragment to navigate to a specific [SleepQualityFragment]
+<<<<<<< Updated upstream
+     * Variable that tells the Fragment to navigate to a specific [SleepQualityFragment
+=======
+     * Variable that tells the Fragment to navigate to a specific
+>>>>>>> Stashed changes
      *
      * This is private because we don't want to expose setting this value to the Fragment.
      */
@@ -113,13 +128,21 @@ class SleepTrackerViewModel(
         _showSnackbarEvent.value = false
     }
     /**
-     * If this is non-null, immediately navigate to [SleepQualityFragment] and call [doneNavigating]
+<<<<<<< Updated upstream
+     * If this is non-null, immediately navigate to [SleepQualityFragmentand call [doneNavigating
+=======
+     * If this is non-null, immediately navigate to  and call
+>>>>>>> Stashed changes
      */
     val navigateToSleepQuality: LiveData<SleepNight>
         get() = _navigateToSleepQuality
 
     /**
-     * Call this immediately after navigating to [SleepQualityFragment]
+<<<<<<< Updated upstream
+     * Call this immediately after navigating to [SleepQualityFragment
+=======
+     * Call this immediately after navigating to 
+>>>>>>> Stashed changes
      *
      * It will clear the navigation request, so if the user rotates their phone it won't navigate
      * twice.
