@@ -45,10 +45,12 @@ fun convertNumericQualityToString(quality: Int, resources: Resources): String {
     return qualityString
 }
 
-fun convertToProperSleepInformation(information:String) {
+fun convertToProperSleepInformation(information:String) :String {
+    var sleepInformation = information
     if(information.isEmpty()) {
-        "--"
+        sleepInformation ="--"
     }
+    return sleepInformation
 }
 
 /**
