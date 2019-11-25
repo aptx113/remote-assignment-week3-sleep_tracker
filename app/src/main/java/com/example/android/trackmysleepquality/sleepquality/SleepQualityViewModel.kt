@@ -92,28 +92,19 @@ class SleepQualityViewModel(
      *
      * Then navigates back to the SleepTrackerFragment.
      */
-    fun onSetSleepQuality(quality: Int) {
+     fun onSetSleepQuality(quality: Int) {
         uiScope.launch {
             // IO is a thread pool for running operations that access the disk, such as
             // our Room database.
             withContext(Dispatchers.IO) {
                 val tonight = database.get(sleepNightKey) ?: return@withContext
                 tonight.sleepQuality = quality
+                tonight.sleepInformation = sleepInformation.value ?:""
                 database.update(tonight)
             }
 
             // Setting this state variable to true will alert the observer and trigger navigation.
             _navigateToSleepTracker.value = true
-        }
-    }
-
-    fun setSleepInformation(information: String) {
-        uiScope.launch {
-            withContext(Dispatchers.IO) {
-                val tonight = database.get(sleepNightKey) ?: return@withContext
-                tonight.sleepInformation = information
-                database.update(tonight)
-            }
         }
     }
 }
